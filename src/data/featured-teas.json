@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tea-001",
+    "name": "Himalayan Green Essence",
+    "image": "/images/featured-tea-green.webp",
+    "description": "Delicate green tea from the foothills of the Himalayas, crafted for clarity and wellness. Each sip brings freshness and serenity.",
+    "teaType": "Green",
+    "ctaUrl": "/products/himalayan-green-essence"
+  },
+  {
+    "id": "tea-002",
+    "name": "Darjeeling Black Gold",
+    "image": "/images/featured-tea-black.webp",
+    "description": "Premium black tea from Darjeeling gardens with subtle floral notes. A sophisticated choice for tea connoisseurs.",
+    "teaType": "Black",
+    "ctaUrl": "/products/darjeeling-black-gold"
+  },
+  {
+    "id": "tea-003",
+    "name": "Oolong Harmony",
+    "image": "/images/featured-tea-oolong.webp",
+    "description": "Perfectly balanced oolong with fruity undertones. Roasted to perfection for a premium taste experience.",
+    "teaType": "Oolong",
+    "ctaUrl": "/products/oolong-harmony"
+  },
+  {
+    "id": "tea-004",
+    "name": "Herbal Wellness Blend",
+    "image": "/images/featured-tea-herbal.webp",
+    "description": "Organic herbal blend combining chamomile, lavender, and mint. Perfect for relaxation and mindful moments.",
+    "teaType": "Herbal",
+    "ctaUrl": "/products/herbal-wellness-blend"
+  },
+  {
+    "id": "tea-005",
+    "name": "Silver Needle White Tea",
+    "image": "/images/featured-tea-white.webp",
+    "description": "Rare white tea hand-picked from Fujian province. Delicate, sweet, and rich in antioxidants for pure wellness.",
+    "teaType": "White",
+    "ctaUrl": "/products/silver-needle-white-tea"
+  },
+  {
+    "id": "tea-006",
+    "name": "Aged Pu-erh Reserve",
+    "image": "/images/featured-tea-puerh.webp",
+    "description": "Vintage Pu-erh aged for 10 years. Deep, earthy flavor with smooth finish. A collector's treasure.",
+    "teaType": "Pu-erh",
+    "ctaUrl": "/products/aged-puerh-reserve"
+  }
+]

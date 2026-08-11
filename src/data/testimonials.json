@@ -1,0 +1,37 @@
+[
+  {
+    "id": "testimonial-001",
+    "quote": "The Tea Story transformed my daily wellness ritual into something truly special. The quality is exceptional.",
+    "author": "Priya Sharma",
+    "role": "Wellness Coach",
+    "image": "/images/testimonial-priya.webp"
+  },
+  {
+    "id": "testimonial-002",
+    "quote": "As a luxury brand enthusiast, I was impressed by the attention to detail and premium experience at every touchpoint.",
+    "author": "James Chen",
+    "role": "Luxury Lifestyle Writer",
+    "image": "/images/testimonial-james.webp"
+  },
+  {
+    "id": "testimonial-003",
+    "quote": "Finally, a tea brand that understands that wellness and indulgence go hand in hand. Highly recommend.",
+    "author": "Sophia Moreau",
+    "role": "Health & Wellness Consultant",
+    "image": "/images/testimonial-sophia.webp"
+  },
+  {
+    "id": "testimonial-004",
+    "quote": "The herbal blends have become my evening essential. Soothing, flavorful, and beautifully packaged.",
+    "author": "Marcus Johnson",
+    "role": "Software Engineer",
+    "image": "/images/testimonial-marcus.webp"
+  },
+  {
+    "id": "testimonial-005",
+    "quote": "Gifted the sampler set to my mother and she hasn't stopped raving about it. Truly premium quality.",
+    "author": "Elena Rodriguez",
+    "role": "Interior Designer",
+    "image": "/images/testimonial-elena.webp"
+  }
+]
