@@ -52,18 +52,18 @@ This document defines all implementation tasks for the Foundation & Public Websi
 
 **Purpose**: Initialize project structure, dependencies, and configuration
 
-- [ ] T001 Create project structure per implementation plan in `src/`, `tests/`, `public/` folders
-- [ ] T002 Initialize npm dependencies (React 18, TypeScript 5, Vite 5, Tailwind CSS, React Router, testing tools)
-- [ ] T003 [P] Configure Vite (vite.config.ts) with React plugin and build optimizations
-- [ ] T004 [P] Configure TypeScript (tsconfig.json) with strict mode and React JSX settings
-- [ ] T005 [P] Configure Tailwind CSS (tailwind.config.js) with brand color palette and responsive breakpoints
-- [ ] T006 [P] Configure ESLint and Prettier for code style
-- [ ] T007 [P] Configure Vitest for unit testing (vitest.config.ts)
-- [ ] T008 [P] Setup GitHub Actions CI/CD pipeline in `.github/workflows/ci.yml` for lint, type-check, test, build
-- [ ] T009 Create `.env.local` template with VITE_GA4_TRACKING_ID placeholder
-- [ ] T010 [P] Create global CSS foundation (src/styles/index.css) with Tailwind imports and CSS custom properties (src/styles/variables.css)
-- [ ] T011 Create src/main.tsx entry point with React.StrictMode and root component rendering
-- [ ] T012 Create public/index.html with GA4 script tag template (VITE_GA4_TRACKING_ID injected at build time)
+- [x] T001 Create project structure per implementation plan in `src/`, `tests/`, `public/` folders
+- [x] T002 Initialize npm dependencies (React 18, TypeScript 5, Vite 5, Tailwind CSS, React Router, testing tools)
+- [x] T003 [P] Configure Vite (vite.config.ts) with React plugin and build optimizations
+- [x] T004 [P] Configure TypeScript (tsconfig.json) with strict mode and React JSX settings
+- [x] T005 [P] Configure Tailwind CSS (tailwind.config.js) with brand color palette and responsive breakpoints
+- [x] T006 [P] Configure ESLint and Prettier for code style
+- [x] T007 [P] Configure Vitest for unit testing (vitest.config.ts)
+- [x] T008 [P] Setup GitHub Actions CI/CD pipeline in `.github/workflows/ci.yml` for lint, type-check, test, build
+- [x] T009 Create `.env.local` template with VITE_GA4_TRACKING_ID placeholder
+- [x] T010 [P] Create global CSS foundation (src/styles/index.css) with Tailwind imports and CSS custom properties (src/styles/variables.css)
+- [x] T011 Create src/main.tsx entry point with React.StrictMode and root component rendering
+- [x] T012 Create public/index.html with GA4 script tag template (VITE_GA4_TRACKING_ID injected at build time)
 
 **Checkpoint**: Project structure ready; npm run dev, build, test all work correctly
 
