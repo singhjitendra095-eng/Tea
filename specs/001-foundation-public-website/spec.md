@@ -4,9 +4,21 @@
 
 **Created**: 2026-08-11
 
-**Status**: Draft
+**Status**: Draft → Clarified
 
 **Input**: User description: "Create a specification for Feature F-001: Foundation & Public Website for 'The Tea Story'."
+
+---
+
+## Clarifications
+
+### Session 2026-08-11
+
+- Q: Featured tea card CTA destination? → A: Cards link to placeholder product detail pages with "Coming soon" messaging; maintains brand flow while clarifying scope.
+- Q: Newsletter form submission behavior and duplicate prevention? → A: Display success message + clear form + store emails in localStorage for dev/testing; prevent duplicate submissions per session.
+- Q: Contact form validation and submission behavior? → A: Validate required fields with inline error messages; display success confirmation; store submissions in localStorage for dev/testing.
+- Q: How to measure bounce rate (SC-008) and implement analytics? → A: Use Google Analytics 4 (GA4) via script tag; track page views and interactions; dashboard setup deferred to team.
+- Q: Featured teas data source and customization options? → A: Static JSON data source with 4-6 curated teas (name, image, description, tea type badge); no customization options; customization scope is F-003 (Product Details).
 
 ---
 
@@ -144,6 +156,8 @@ A visitor has a question or wants to get in touch with customer support.
 - How does the website handle missing or broken images? → Display placeholder or alt text; use CDN caching to minimize image delivery failures.
 - What happens when a visitor opens the newsletter signup form on a slow network? → Form loads progressively; submit button is disabled until form is fully rendered.
 - How does the website handle very long product names or testimonial quotes? → Text wraps gracefully; line length remains readable (optimal 50-75 characters).
+- What happens if GA4 script fails to load or analytics is blocked by ad blocker? → Website continues to function normally; analytics tracking is non-blocking. No error messaging displayed to user.
+- How does the contact form handle very long messages or special characters? → Message field accepts all text input; validation checks for non-empty content only; special characters are allowed.
 
 ---
 
@@ -154,11 +168,11 @@ A visitor has a question or wants to get in touch with customer support.
 - **FR-001**: Website MUST display a responsive homepage featuring a hero section with premium imagery, brand tagline, and primary call-to-action button linking to featured products or product catalog.
 - **FR-002**: Website MUST include an "About The Tea Story" section that communicates brand mission, values, sourcing philosophy, and wellness focus through compelling copy and lifestyle photography.
 - **FR-003**: Website MUST include a "Why Choose Us" section highlighting 3-5 key competitive differentiators (premium organic sourcing, customization, wellness focus, sustainability, premium packaging).
-- **FR-004**: Website MUST display a "Featured Teas" section showcasing 4-6 representative teas with images, brief descriptions, and visual variety (different tea types, colors, brewing styles) as static content.
+- **FR-004**: Website MUST display a "Featured Teas" section showcasing 4-6 representative teas (loaded from static JSON data file) with images, brief descriptions (1-2 sentences), and tea type badges (Black/Green/White/Oolong) as static content. Featured tea cards display name, image, description, and type only; product customization options (quantity, format, size) are out of scope for this feature and belong in F-003 (Product Details).
 - **FR-005**: Website MUST include a testimonials section displaying 3-5 authentic customer testimonials with customer names and optional customer photos or attribution.
 - **FR-006**: Website MUST provide a responsive navigation menu that is visible on all pages and allows users to access: Home, About, Why Choose Us, Featured Teas, Testimonials, Contact sections.
-- **FR-007**: Website MUST include a newsletter signup form (UI only, no backend integration) where visitors can enter an email address and opt-in to communications.
-- **FR-008**: Website MUST include a Contact section with business contact information (email, phone, address) and a contact form (UI only, no backend submission).
+- **FR-007**: Website MUST include a newsletter signup form (UI only, no backend email integration) where visitors can enter an email address and opt-in to communications. On form submit: validate email field, display success message ("Thank you! Check your email for exclusive updates"), clear the form, store submitted email in browser localStorage for development/testing purposes, and prevent duplicate submissions during the same browser session.
+- **FR-008**: Website MUST include a Contact section with business contact information (email, phone, address) and a contact form (UI only, no backend submission). Contact form MUST validate required fields (email, message) and display inline error messages (red outline + error text below field) on validation failure. On successful validation, display success message ("We've received your message. We typically respond within 24 hours"), clear the form, and store submission in browser localStorage for development/testing purposes.
 - **FR-009**: Website MUST include a footer containing copyright information, links to major sections, and secondary navigation.
 - **FR-010**: Website MUST be fully responsive and optimized for mobile (< 768px), tablet (768px – 1024px), and desktop (> 1024px) screen sizes with mobile-first design approach.
 - **FR-011**: Website MUST adhere to WCAG AA accessibility standards including semantic HTML, alt text for images, keyboard navigation, sufficient color contrast, and ARIA labels.
@@ -167,12 +181,13 @@ A visitor has a question or wants to get in touch with customer support.
 - **FR-014**: Website MUST employ premium typography with large, readable headings, comfortable line spacing, generous white space, and clear visual hierarchy.
 - **FR-015**: Website MUST load homepage in under 2 seconds on 4G connection and perform smoothly on all modern browsers (Chrome, Firefox, Safari, Edge updated within last 12 months).
 - **FR-016**: Website MUST use high-quality photography emphasizing tea gardens, craftsmanship, natural ingredients, steam, wooden textures, ceramic cups, glass teaware, morning light, and handcrafted preparation.
+- **FR-017**: Website MUST integrate Google Analytics 4 (GA4) via script tag for tracking page views, user interactions (featured tea card clicks, newsletter signup attempts, contact form submissions), and measuring bounce rate. Analytics dashboard/reporting setup is out of scope for this feature; implementation team adds GA4 tracking code only.
 
 ### Key Entities
 
-- **Hero Section**: Visual and messaging component introducing brand and primary call-to-action. Attributes: image, headline, subheadline, CTA text, CTA destination.
+- **Hero Section**: Visual and messaging component introducing brand (loaded from static JSON data source). Attributes: name, image, brief description (1-2 sentences), tea type badge (Black/Green/White/Oolong), CTA link destination (to placeholder/future product detail page or "Coming soon" page
 - **Featured Tea**: Representative tea product displayed on homepage. Attributes: name, image, brief description, tea type indicator (black, green, white, oolong, etc.).
-- **Testimonial**: Customer quote and attribution. Attributes: quote text, customer name, optional customer photo, optional customer title/role.
+- **Testimonial**: Customer quote and attribution. Attributes: quote text, customer name, optional customer photo, optional custom On submit: validate email format, display success message and clear form on success, prevent duplicate submissions per browser session, store emails in localStorage for dev/testing.er title/role.
 - **Newsletter Signup**: Email capture form. Attributes: email input field, submit button, optional privacy policy acknowledgment.
 - **Contact Information**: Support contact details. Attributes: email address, phone number, physical address, business hours, response time expectation.
 
@@ -189,7 +204,7 @@ A visitor has a question or wants to get in touch with customer support.
 - **SC-005**: All images are optimized and served in modern formats (WebP with PNG fallback) without exceeding 100KB per image on hero section.
 - **SC-006**: Website passes WCAG AA accessibility audit: keyboard navigation, color contrast (4.5:1 for text), alt text on all images, proper heading hierarchy, form labels.
 - **SC-007**: All primary user journeys (brand discovery, navigation, mobile access, contact availability) can be completed without errors or broken links.
-- **SC-008**: Bounce rate on homepage is lower than industry standard for e-commerce (currently ~40% for retail websites) as measured by analytics setup.
+- **SC-008**: Bounce rate on homepage is lower than industry standard for e-commerce (currently ~40% for retail websites) as measured by Google Analytics 4 (GA4) tracking. GA4 implementation is included in this feature; bounce rate reporting is reviewed in team retrospective post-launch.
 - **SC-009**: At least 90% of visitors perceive the brand as premium, trustworthy, and professional based on design aesthetic assessment.
 - **SC-010**: Newsletter signup conversion rate exceeds 2% of unique homepage visitors (baseline expectation for premium lifestyle brands).
 
@@ -206,7 +221,10 @@ A visitor has a question or wants to get in touch with customer support.
 - **Design System Reusability**: All components (buttons, cards, sections, navigation) built during this feature establish the component library and design tokens for reuse in F-002+ features.
 - **Imagery Rights**: All photography has proper licensing for commercial web use; photography follows DesignPrinciples.md guidance (no artificial stock photos, prefer authentic tea gardens, craftsmanship, natural light).
 - **Accessibility Compliance Enforcement**: WCAG AA is the minimum standard; design and development processes include accessibility testing at each phase; automated tools (axe, Lighthouse) plus manual testing are used.
-- **SEO Priority**: Server-side rendering (SSR) or static generation for public pages is required per ProjectGoals.md to ensure proper search engine indexing and Open Graph meta tag support.
+- **SEO Priority**: Server-side rendering (SSR) or static generation for public pages is required per ProjectGoals.md to ensure proper search engine indexing and Opens are stored in localStorage for development/testing. Email delivery system setup is part of future features.
+- **Form Data Storage**: Newsletter and contact form submissions are stored in browser localStorage only (no server-side persistence). This is for development/testing and will be replaced by proper backend integration in future features.
+- **Analytics Implementation**: Google Analytics 4 (GA4) is integrated via script tag; event tracking includes page views, featured tea card clicks, newsletter signup attempts, and contact form submissions. GA4 dashboard setup, bounce rate analysis, and reporting workflows are out of scope for this feature and handled by team post-launch.
+- **Featured Teas Data Structure**: Featured teas are loaded from a static JSON data file (path: `src/data/featured-teas.json` or equivalent) containing 4-6 tea objects with properties: id, name, image (URL or import path), description, teaType, ctaUrl. This data file is created/provided by product/content team before development
 - **Mobile-First Approach**: Design and development prioritize mobile (< 768px) first, then scale up to tablet and desktop, ensuring optimal experience for primary personas (Wellness Professional and Luxury Buyer who are mobile-first shoppers).
 - **Lead Capture Only**: Newsletter signup captures email for lead generation but does not trigger confirmation email or send communications during this sprint. Email delivery system setup is part of future features.
 
